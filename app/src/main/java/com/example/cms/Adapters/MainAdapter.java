@@ -1,6 +1,7 @@
 package com.example.cms.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cms.DetailActivity;
 import com.example.cms.Models.MainModel;
 import com.example.cms.R;
 
@@ -38,6 +40,21 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.viewholder>{
         holder.name.setText(model.getName());
         holder.price.setText(model.getPrice());
         holder.desc.setText(model.getDescription());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener()
+        {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("img", model.getImage());
+                intent.putExtra("name", model.getName());
+                intent.putExtra("price", model.getPrice());
+                intent.putExtra("desc", model.getDescription());
+                context.startActivity(intent);
+
+            }
+        });
     }
 
     @Override
