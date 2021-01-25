@@ -4,11 +4,17 @@ public class OrdersModel {
     int orderimage;
     String Sold_item_name, price, order_num;
 
+
+
     public OrdersModel(int orderimage, String sold_item_name, String price, String order_num) {
         this.orderimage = orderimage;
         Sold_item_name = sold_item_name;
         this.price = price;
         this.order_num = order_num;
+    }
+
+    public OrdersModel() {
+
     }
 
     public int getOrderimage() {

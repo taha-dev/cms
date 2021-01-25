@@ -1,10 +1,13 @@
 package com.example.cms;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.cms.Adapters.MainAdapter;
 import com.example.cms.Models.MainModel;
@@ -37,5 +40,16 @@ public class MainActivity extends AppCompatActivity {
     {
         getMenuInflater().inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.orders:
+                startActivity(new Intent(MainActivity.this, OrderActivity.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
